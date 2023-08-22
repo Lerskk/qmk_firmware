@@ -1,38 +1,40 @@
 #include QMK_KEYBOARD_H
 // #include "features/achordion.h"
 
-#define HOME_A LGUI_T(KC_A)
-#define HOME_O LALT_T(KC_O)
-#define HOME_E LSFT_T(KC_E)
-#define HOME_U LCTL_T(KC_U)
-#define HOME_H LCTL_T(KC_H)
-#define HOME_T LSFT_T(KC_T)
-#define HOME_N LALT_T(KC_N)
+#define HOME_DA LGUI_T(KC_A)
+#define HOME_DO LALT_T(KC_O)
+#define HOME_DE LSFT_T(KC_E)
+#define HOME_DU LCTL_T(KC_U)
+#define HOME_DH LCTL_T(KC_H)
+#define HOME_DT LSFT_T(KC_T)
+#define HOME_DN LALT_T(KC_N)
+#define HOME_DS LGUI_T(KC_S)
+
 #define HOME_S LGUI_T(KC_S)
+#define HOME_R LALT_T(KC_R)
+#define HOME_N LSFT_T(KC_N)
+#define HOME_T LCTL_T(KC_T)
+#define HOME_D LCTL_T(KC_D)
+#define HOME_E LSFT_T(KC_E)
+#define HOME_A LALT_T(KC_A)
+#define HOME_I LGUI_T(KC_I)
 
-#define HOME_SS LGUI_T(KC_S)
-#define HOME_ST LALT_T(KC_T)
-#define HOME_SR LSFT_T(KC_R)
-#define HOME_SD LCTL_T(KC_D)
-#define HOME_SN LCTL_T(KC_N)
-#define HOME_SA LSFT_T(KC_A)
-#define HOME_SE LALT_T(KC_E)
-#define HOME_SI LGUI_T(KC_I)
+#define LT_D1 LT(ONE, KC_COMM)
+#define LT_D2 LT(TWO, KC_R)
+#define LT_D3 LT(THREE, KC_QUOT)
+#define LT_D4 LT(FOUR, KC_L)
 
-#define LT_1 LT(ONE, KC_COMM)
-#define LT_2 LT(TWO, KC_R)
-#define LT_3 LT(THREE, KC_QUOT)
-#define LT_4 LT(FOUR, KC_L)
-
-#define LT_S1 LT(ONE, KC_M)
-#define LT_S2 LT(TWO, KC_U)
-#define LT_S3 LT(THREE, KC_V)
-#define LT_S4 LT(FOUR, KC_Q)
-#define LT_S5 LT(FIVE, KC_L)
-#define LT_S6 LT(SIX, KC_O)
+#define LT_1 LT(ONE, KC_L)
+#define LT_2 LT(TWO, KC_O)
+#define LT_3 LT(THREE, KC_F)
+#define LT_4 LT(FOUR, KC_Y)
+#define LT_5 LT(FIVE, KC_H)
+#define LT_6 LT(SIX, KC_U)
 
 #define DF_D DF(DVORAK)
 #define DF_B DF(BASE)
+#define DF_G DF(GAME)
+#define DF_Q DF(QWERTY)
 
 #define STAR QK_AREP
 
@@ -48,7 +50,9 @@ enum layers {
     THREE,
     FOUR,
     FIVE,
-    SIX
+    SIX,
+    QWERTY,
+    GAME
 };
 
 enum custom_keycodes {
@@ -71,17 +75,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        KC_TAB ,  LT_S3  ,  LT_S1  ,  LT_S5  ,  KC_C   ,  KC_P   ,  KC_X   ,  STAR   ,  LT_S6  ,  LT_S2  ,  LT_S4  ,  MGONE  ,  MGTWO  ,            DF_D   ,  _______,
-        KC_ESC ,  HOME_SS,  HOME_ST,  HOME_SR,  HOME_SD,  KC_Y   ,  KC_F   ,  HOME_SN,  HOME_SA,  HOME_SE,  HOME_SI,  KC_BSPC,                      KC_ENT ,  _______,
-        _______,  KC_K   ,  KC_J   ,  KC_G   ,  KC_W   ,  KC_Z   ,  KC_B   ,  KC_H   ,  KC_COMM,  KC_DOT ,  KC_QUOT,                      _______,  _______,
-        _______,  _______,  _______,                                KC_SPC ,                      _______,  _______,  _______,            _______,  _______,  _______
+        KC_TAB ,  LT_3   ,  LT_1   ,  LT_5   ,  KC_V   ,  KC_Z   ,  KC_QUOT,  KC_W   ,  LT_6   ,  LT_2   ,  LT_4   ,  MGONE  ,  MGTWO  ,            DF_D   ,  _______,
+        KC_ESC ,  HOME_S ,  HOME_R ,  HOME_N ,  HOME_T ,  KC_K   ,  KC_C   ,  HOME_D ,  HOME_E ,  HOME_A ,  HOME_I ,  KC_BSPC,                      KC_ENT ,  _______,
+        _______,  KC_X   ,  KC_Q   ,  KC_B   ,  KC_M   ,  KC_J   ,  KC_P   ,  KC_G   ,  KC_COMM,  KC_DOT ,  KC_SCLN,                      _______,  _______,
+        _______,  _______,  _______,                                KC_SPC ,                      DF_G   ,  DF_Q   ,  _______,            _______,  _______,  _______
         ),
 
     [DVORAK] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        KC_TAB ,  LT_3   ,  LT_1   ,  KC_DOT ,  KC_P   ,  KC_Y   ,  KC_F   ,  KC_G   ,  KC_C   ,  LT_2   ,  LT_4   ,  MGONE  ,  MGTWO  ,            DF_B   ,  _______,
-        KC_ESC ,  HOME_A ,  HOME_O ,  HOME_E ,  HOME_U ,  KC_I   ,  KC_D   ,  HOME_H ,  HOME_T ,  HOME_N ,  HOME_S ,  KC_BSPC,                      KC_ENT ,  _______,
+        KC_TAB ,  LT_D3  ,  LT_D1  ,  KC_DOT ,  KC_P   ,  KC_Y   ,  KC_F   ,  KC_G   ,  KC_C   ,  LT_D2  ,  LT_D4  ,  MGONE  ,  MGTWO  ,            DF_B   ,  _______,
+        KC_ESC ,  HOME_DA,  HOME_DO,  HOME_DE,  HOME_DU,  KC_I   ,  KC_D   ,  HOME_DH,  HOME_DT,  HOME_DN,  HOME_DS,  KC_BSPC,                      KC_ENT ,  _______,
         _______,  KC_SCLN,  KC_Q   ,  KC_J   ,  KC_K   ,  KC_X   ,  KC_B   ,  KC_M   ,  KC_W   ,  KC_V   ,  KC_Z   ,                      _______,  _______,
         _______,  _______,  _______,                                KC_SPC ,                      _______,  _______,  _______,            _______,  _______,  _______
         ),
@@ -138,7 +142,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  KC_PLUS,  KC_MINS,  KC_ASTR,  KC_SLSH,  KC_EQL ,  _______,  _______,  _______,  _______,  _______,  _______,                      _______,  _______,
         _______,  _______,  KC_UNDS,  KC_TILD,  KC_BSLS,  _______,  _______,  _______,  _______,  _______,  _______,                      _______,  _______,
         _______,  _______,  _______,                                _______,                      _______,  _______,  _______,            _______,  _______,  _______
-        )
+        ),
+
+    [QWERTY] = LAYOUT_ansi_82(
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
+        KC_TILD,  KC_1   ,  KC_2   ,  KC_3   ,  KC_4   ,  KC_5   ,  KC_6   ,  KC_7   ,  KC_8   ,  KC_9   ,  KC_0   ,  _______,  _______,  _______,            _______,
+        KC_TAB ,  KC_Q   ,  KC_W   ,  KC_E   ,  KC_R   ,  KC_T   ,  KC_Y   ,  KC_U   ,  KC_I   ,  KC_O   ,  KC_P   ,  _______,  _______,            DF_B   ,  _______,
+        KC_ESC ,  KC_A   ,  KC_S   ,  KC_D   ,  KC_F   ,  KC_G   ,  KC_H   ,  KC_J   ,  KC_K   ,  KC_L   ,  KC_D   ,  KC_BSPC,                      KC_ENT ,  _______,
+        KC_LSFT,  KC_Z   ,  KC_X   ,  KC_C   ,  KC_V   ,  KC_B   ,  KC_N   ,  KC_M   ,  KC_W   ,  KC_V   ,  KC_Z   ,                      _______,  _______,
+        KC_LCTL,  KC_LGUI,  KC_LALT,                                KC_SPC ,                      _______,  _______,  _______,            _______,  _______,  _______
+        ),
+
+    [GAME] = LAYOUT_ansi_82(
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
+        KC_TAB ,  KC_P   ,  KC_Q   ,  KC_W   ,  KC_E   ,  KC_R   ,  KC_T   ,  KC_Y   ,  KC_U   ,  KC_I   ,  KC_O   ,  _______,  _______,            DF_B   ,  _______,
+        KC_ESC ,  KC_LSFT,  KC_A   ,  KC_S   ,  KC_D   ,  KC_F   ,  KC_G   ,  KC_H   ,  KC_J   ,  KC_K   ,  _______,  KC_BSPC,                      KC_ENT ,  _______,
+        KC_L   ,  KC_W   ,  KC_Z   ,  KC_X   ,  KC_LCTL,  KC_V   ,  KC_B   ,  KC_N   ,  KC_M   ,  _______,  _______,                      _______,  _______,
+        KC_C   ,  _______,  _______,                                KC_SPC ,                      _______,  _______,  _______,            _______,  _______,  _______
+        ),
 
     // [EMPTY] = LAYOUT_ansi_82(
     //     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
@@ -160,6 +182,8 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [FOUR] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [FIVE] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [SIX] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+    [QWERTY] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+    [GAME] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
 };
 #endif
 

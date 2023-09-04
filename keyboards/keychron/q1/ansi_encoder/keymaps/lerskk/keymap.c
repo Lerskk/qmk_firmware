@@ -146,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [QWERTY] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
-        KC_TILD,  KC_1   ,  KC_2   ,  KC_3   ,  KC_4   ,  KC_5   ,  KC_6   ,  KC_7   ,  KC_8   ,  KC_9   ,  KC_0   ,  _______,  _______,  _______,            _______,
+        KC_GRV ,  KC_1   ,  KC_2   ,  KC_3   ,  KC_4   ,  KC_5   ,  KC_6   ,  KC_7   ,  KC_8   ,  KC_9   ,  KC_0   ,  _______,  _______,  _______,            _______,
         KC_TAB ,  KC_Q   ,  KC_W   ,  KC_E   ,  KC_R   ,  KC_T   ,  KC_Y   ,  KC_U   ,  KC_I   ,  KC_O   ,  KC_P   ,  _______,  _______,            DF_B   ,  _______,
         KC_ESC ,  KC_A   ,  KC_S   ,  KC_D   ,  KC_F   ,  KC_G   ,  KC_H   ,  KC_J   ,  KC_K   ,  KC_L   ,  KC_D   ,  KC_BSPC,                      KC_ENT ,  _______,
         KC_LSFT,  KC_Z   ,  KC_X   ,  KC_C   ,  KC_V   ,  KC_B   ,  KC_N   ,  KC_M   ,  KC_W   ,  KC_V   ,  KC_Z   ,                      _______,  _______,
@@ -155,11 +155,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [GAME] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
+        KC_GRV ,  KC_1   ,  KC_2   ,  KC_3   ,  KC_4   ,  KC_5   ,  KC_6   ,  KC_7   ,  KC_8   ,  KC_9   ,  KC_0   ,  _______,  _______,  _______,            _______,
         KC_TAB ,  KC_P   ,  KC_Q   ,  KC_W   ,  KC_E   ,  KC_R   ,  KC_T   ,  KC_Y   ,  KC_U   ,  KC_I   ,  KC_O   ,  _______,  _______,            DF_B   ,  _______,
         KC_ESC ,  KC_LSFT,  KC_A   ,  KC_S   ,  KC_D   ,  KC_F   ,  KC_G   ,  KC_H   ,  KC_J   ,  KC_K   ,  _______,  KC_BSPC,                      KC_ENT ,  _______,
         KC_L   ,  KC_W   ,  KC_Z   ,  KC_X   ,  KC_LCTL,  KC_V   ,  KC_B   ,  KC_N   ,  KC_M   ,  _______,  _______,                      _______,  _______,
-        KC_C   ,  _______,  _______,                                KC_SPC ,                      _______,  _______,  _______,            _______,  _______,  _______
+        KC_C   ,  KC_LGUI,  KC_LALT,                                KC_SPC ,                      _______,  _______,  _______,            _______,  _______,  _______
         ),
 
     // [EMPTY] = LAYOUT_ansi_82(
@@ -230,27 +230,28 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
 //   achordion_task();
 // }
 //
-// bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, uint16_t other_keycode, keyrecord_t* other_record) {
-//   return achordion_opposite_hands(tap_hold_record, other_record);
-// }
-//
 // uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-//   return 800;
+//   return 120;
 // }
-//
-// bool achordion_eager_mod(uint8_t mod) {
-//   switch (mod) {
-//     case MOD_LSFT:
-//     case MOD_RSFT:
-//     case MOD_LCTL:
-//     case MOD_RCTL:
-//     case MOD_LALT:
-//     case MOD_RALT:
-//       return true;  // Eagerly apply Shift and Ctrl mods.
-//
-//     default:
-//       return false;
+
+// bool achordion_chord(uint16_t tap_hold_keycode,
+//                      keyrecord_t* tap_hold_record,
+//                      uint16_t other_keycode,
+//                      keyrecord_t* other_record) {
+//   // Exceptionally consider the following chords as holds, even though they
+//   // are on the same hand in Dvorak.
+//   switch (tap_hold_keycode) {
+//     case HOME_T:  // T + C.
+//       if (other_keycode == KC_C || other_keycode == KC_V || other_keycode == KC_Z) { return true; }
+//       break;
 //   }
+//
+//   // Also allow same-hand holds when the other key is in the rows below the
+//   // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
+//   // if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }
+//
+//   // Otherwise, follow the opposite hands rule.
+// }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // if (!process_achordion(keycode, record)) { return false; }

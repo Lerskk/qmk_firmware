@@ -1,5 +1,14 @@
 #include QMK_KEYBOARD_H
 // #include "features/achordion.h"
+//
+#define HOME_LG LGUI_T(KC_R)
+#define HOME_LA LALT_T(KC_S)
+#define HOME_LS LSFT_T(KC_T)
+#define HOME_LC LCTL_T(KC_H)
+#define HOME_RC LCTL_T(KC_N)
+#define HOME_RS LSFT_T(KC_E)
+#define HOME_RA LALT_T(KC_A)
+#define HOME_RG LGUI_T(KC_I)
 
 #define HOME_DA LGUI_T(KC_A)
 #define HOME_DO LALT_T(KC_O)
@@ -10,28 +19,36 @@
 #define HOME_DN LALT_T(KC_N)
 #define HOME_DS LGUI_T(KC_S)
 
-#define HOME_S LGUI_T(KC_S)
-#define HOME_R LALT_T(KC_R)
-#define HOME_N LSFT_T(KC_N)
-#define HOME_T LCTL_T(KC_T)
-#define HOME_D LCTL_T(KC_D)
-#define HOME_E LSFT_T(KC_E)
-#define HOME_A LALT_T(KC_A)
-#define HOME_I LGUI_T(KC_I)
+#define HOME_SS LGUI_T(KC_S)
+#define HOME_SR LALT_T(KC_R)
+#define HOME_SN LSFT_T(KC_N)
+#define HOME_ST LCTL_T(KC_T)
+#define HOME_SD LCTL_T(KC_D)
+#define HOME_SE LSFT_T(KC_E)
+#define HOME_SA LALT_T(KC_A)
+#define HOME_SI LGUI_T(KC_I)
 
 #define LT_D1 LT(ONE, KC_COMM)
 #define LT_D2 LT(TWO, KC_R)
 #define LT_D3 LT(THREE, KC_QUOT)
 #define LT_D4 LT(FOUR, KC_L)
 
-#define LT_1 LT(ONE, KC_L)
+#define LT_1 LT(ONE, KC_C)
 #define LT_2 LT(TWO, KC_O)
-#define LT_3 LT(THREE, KC_F)
-#define LT_4 LT(FOUR, KC_Y)
-#define LT_5 LT(FIVE, KC_H)
+#define LT_3 LT(THREE, KC_L)
+#define LT_4 LT(FOUR, KC_COMM)
+#define LT_5 LT(FIVE, KC_D)
 #define LT_6 LT(SIX, KC_U)
 
+#define LT_A1 LT(ONE, KC_L)
+#define LT_A2 LT(TWO, KC_O)
+#define LT_A3 LT(THREE, KC_F)
+#define LT_A4 LT(FOUR, KC_Y)
+#define LT_A5 LT(FIVE, KC_H)
+#define LT_A6 LT(SIX, KC_U)
+
 #define DF_D DF(DVORAK)
+#define DF_A DF(ALT)
 #define DF_B DF(BASE)
 #define DF_G DF(GAME)
 #define DF_Q DF(QWERTY)
@@ -44,6 +61,7 @@
 
 enum layers {
     BASE,
+    ALT,
     DVORAK,
     ONE,
     TWO,
@@ -75,8 +93,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        KC_TAB ,  LT_3   ,  LT_1   ,  LT_5   ,  KC_V   ,  KC_Z   ,  KC_QUOT,  KC_W   ,  LT_6   ,  LT_2   ,  LT_4   ,  MGONE  ,  MGTWO  ,            DF_D   ,  _______,
-        KC_ESC ,  HOME_S ,  HOME_R ,  HOME_N ,  HOME_T ,  KC_K   ,  KC_C   ,  HOME_D ,  HOME_E ,  HOME_A ,  HOME_I ,  KC_BSPC,                      KC_ENT ,  _______,
+        KC_TAB ,  LT_3   ,  LT_1   ,  LT_5   ,  KC_Y   ,  KC_B   ,  KC_Q   ,  KC_X   ,  LT_6   ,  LT_2   ,  LT_4   ,  MGONE  ,  MGTWO  ,            DF_A   ,  _______,
+        KC_ESC ,  HOME_LG,  HOME_LA,  HOME_LS,  HOME_LC,  KC_K   ,  KC_J   ,  HOME_RC,  HOME_RS,  HOME_RA,  HOME_RG,  KC_BSPC,                      KC_ENT ,  _______,
+        _______,  KC_W   ,  KC_V   ,  KC_G   ,  KC_P   ,  KC_F   ,  KC_Z   ,  KC_M   ,  KC_SCLN,  KC_QUOT,  KC_DOT ,                      _______,  _______,
+        _______,  _______,  _______,                                KC_SPC ,                      DF_G   ,  DF_Q   ,  DF_D   ,            _______,  _______,  _______
+        ),
+    [ALT] = LAYOUT_ansi_82(
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
+        KC_TAB ,  LT_A3  ,  LT_A1  ,  LT_A5  ,  KC_V   ,  KC_Z   ,  KC_QUOT,  KC_W   ,  LT_A6  ,  LT_A2  ,  LT_A4  ,  MGONE  ,  MGTWO  ,            DF_B   ,  _______,
+        KC_ESC ,  HOME_SS,  HOME_SR,  HOME_SN,  HOME_ST,  KC_K   ,  KC_C   ,  HOME_SD,  HOME_SE,  HOME_SA,  HOME_SI,  KC_BSPC,                      KC_ENT ,  _______,
         _______,  KC_X   ,  KC_Q   ,  KC_B   ,  KC_M   ,  KC_J   ,  KC_P   ,  KC_G   ,  KC_COMM,  KC_DOT ,  KC_SCLN,                      _______,  _______,
         _______,  _______,  _______,                                KC_SPC ,                      DF_G   ,  DF_Q   ,  _______,            _______,  _______,  _______
         ),
@@ -175,6 +201,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [BASE] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+    [ALT] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [DVORAK] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [ONE] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [TWO] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
@@ -241,7 +268,7 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
 //   // Exceptionally consider the following chords as holds, even though they
 //   // are on the same hand in Dvorak.
 //   switch (tap_hold_keycode) {
-//     case HOME_T:  // T + C.
+//     case HOME_ST:  // T + C.
 //       if (other_keycode == KC_C || other_keycode == KC_V || other_keycode == KC_Z) { return true; }
 //       break;
 //   }

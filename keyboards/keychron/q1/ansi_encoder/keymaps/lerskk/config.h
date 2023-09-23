@@ -1,2 +1,2 @@
-#define TAPPING_TERM 160
+#define TAPPING_TERM 180
 #define PERMISSIVE_HOLD

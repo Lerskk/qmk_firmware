@@ -1,10 +1,10 @@
 #include QMK_KEYBOARD_H
 // #include "features/achordion.h"
 //
-#define HOME_LG LGUI_T(KC_R)
-#define HOME_LA LALT_T(KC_S)
+#define HOME_LG LGUI_T(KC_S)
+#define HOME_LA LALT_T(KC_R)
 #define HOME_LS LSFT_T(KC_T)
-#define HOME_LC LCTL_T(KC_H)
+#define HOME_LC LCTL_T(KC_D)
 #define HOME_RC LCTL_T(KC_N)
 #define HOME_RS LSFT_T(KC_E)
 #define HOME_RA LALT_T(KC_A)
@@ -33,9 +33,9 @@
 #define LT_D3 LT(THREE, KC_QUOT)
 #define LT_D4 LT(FOUR, KC_L)
 
-#define LT_1 LT(ONE, KC_C)
+#define LT_1 LT(ONE, KC_L)
 #define LT_2 LT(TWO, KC_O)
-#define LT_3 LT(THREE, KC_L)
+#define LT_3 LT(THREE, KC_F)
 #define LT_4 LT(FOUR, KC_Y)
 #define LT_5 LT(FIVE, KC_P)
 #define LT_6 LT(SIX, KC_U)
@@ -93,9 +93,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        KC_TAB ,  LT_3   ,  LT_1   ,  LT_5   ,  KC_D   ,  KC_F   ,  KC_Q   ,  KC_B   ,  LT_6   ,  LT_2   ,  LT_4   ,  MGONE  ,  MGTWO  ,            DF_A   ,  _______,
-        KC_ESC ,  HOME_LG,  HOME_LA,  HOME_LS,  HOME_LC,  KC_K   ,  KC_X   ,  HOME_RC,  HOME_RS,  HOME_RA,  HOME_RG,  KC_BSPC,                      KC_ENT ,  _______,
-        _______,  KC_QUOT,  KC_G   ,  KC_V   ,  KC_M   ,  KC_J   ,  KC_Z   ,  KC_W   ,  KC_SCLN,  KC_COMM,  KC_DOT ,                      _______,  _______,
+        KC_TAB ,  LT_3   ,  LT_1   ,  LT_5   ,  KC_C   ,  KC_G   ,  KC_Q   ,  KC_H   ,  LT_6   ,  LT_2   ,  LT_4   ,  MGONE  ,  MGTWO  ,            DF_A   ,  _______,
+        KC_ESC ,  HOME_LG,  HOME_LA,  HOME_LS,  HOME_LC,  KC_W   ,  KC_X   ,  HOME_RC,  HOME_RS,  HOME_RA,  HOME_RG,  KC_BSPC,                      KC_ENT ,  _______,
+        _______,  KC_V   ,  KC_J   ,  KC_K   ,  KC_M   ,  KC_Z   ,  KC_SCLN,  KC_B   ,  KC_QUOT,  KC_DOT ,  KC_COMM,                      _______,  _______,
         _______,  _______,  _______,                                KC_SPC ,                      DF_G   ,  DF_Q   ,  DF_D   ,            _______,  _______,  _______
         ),
     [ALT] = LAYOUT_ansi_82(

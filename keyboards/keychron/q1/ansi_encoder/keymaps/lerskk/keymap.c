@@ -6,8 +6,8 @@
 #define HOME_LS LSFT_T(KC_T)
 #define HOME_LC LCTL_T(KC_D)
 #define HOME_RC LCTL_T(KC_N)
-#define HOME_RS LSFT_T(KC_E)
-#define HOME_RA LALT_T(KC_A)
+#define HOME_RS LSFT_T(KC_A)
+#define HOME_RA LALT_T(KC_E)
 #define HOME_RG LGUI_T(KC_I)
 
 #define HOME_DA LGUI_T(KC_A)
@@ -19,37 +19,23 @@
 #define HOME_DN LALT_T(KC_N)
 #define HOME_DS LGUI_T(KC_S)
 
-#define HOME_SS LGUI_T(KC_S)
-#define HOME_SR LALT_T(KC_R)
-#define HOME_SN LSFT_T(KC_N)
-#define HOME_ST LCTL_T(KC_T)
-#define HOME_SD LCTL_T(KC_D)
-#define HOME_SE LSFT_T(KC_E)
-#define HOME_SA LALT_T(KC_A)
-#define HOME_SI LGUI_T(KC_I)
+#define LT_L1 LT(THREE, KC_V)
+#define LT_L2 LT(ONE, KC_L)
+#define LT_L3 LT(FIVE, KC_M)
+
+#define LT_R1 LT(FOUR, KC_Y)
+#define LT_R2 LT(TWO, KC_U)
+#define LT_R3 LT(SIX, KC_O)
 
 #define LT_D1 LT(ONE, KC_COMM)
 #define LT_D2 LT(TWO, KC_R)
 #define LT_D3 LT(THREE, KC_QUOT)
 #define LT_D4 LT(FOUR, KC_L)
+#define LT_D5 LT(FIVE, KC_DOT)
+#define LT_D6 LT(SIX, KC_C)
 
-#define LT_1 LT(ONE, KC_L)
-#define LT_2 LT(TWO, KC_O)
-#define LT_3 LT(THREE, KC_F)
-#define LT_4 LT(FOUR, KC_Y)
-#define LT_5 LT(FIVE, KC_P)
-#define LT_6 LT(SIX, KC_U)
-
-#define LT_A1 LT(ONE, KC_L)
-#define LT_A2 LT(TWO, KC_O)
-#define LT_A3 LT(THREE, KC_F)
-#define LT_A4 LT(FOUR, KC_Y)
-#define LT_A5 LT(FIVE, KC_H)
-#define LT_A6 LT(SIX, KC_U)
-
-#define DF_D DF(DVORAK)
-#define DF_A DF(ALT)
 #define DF_B DF(BASE)
+#define DF_D DF(DVORAK)
 #define DF_G DF(GAME)
 #define DF_Q DF(QWERTY)
 
@@ -61,7 +47,6 @@
 
 enum layers {
     BASE,
-    ALT,
     DVORAK,
     ONE,
     TWO,
@@ -93,24 +78,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        KC_TAB ,  LT_3   ,  LT_1   ,  LT_5   ,  KC_C   ,  KC_G   ,  KC_Q   ,  KC_H   ,  LT_6   ,  LT_2   ,  LT_4   ,  MGONE  ,  MGTWO  ,            DF_A   ,  _______,
-        KC_ESC ,  HOME_LG,  HOME_LA,  HOME_LS,  HOME_LC,  KC_W   ,  KC_X   ,  HOME_RC,  HOME_RS,  HOME_RA,  HOME_RG,  KC_BSPC,                      KC_ENT ,  _______,
-        _______,  KC_V   ,  KC_J   ,  KC_K   ,  KC_M   ,  KC_Z   ,  KC_SCLN,  KC_B   ,  KC_QUOT,  KC_DOT ,  KC_COMM,                      _______,  _______,
-        _______,  _______,  _______,                                KC_SPC ,                      DF_G   ,  DF_Q   ,  DF_D   ,            _______,  _______,  _______
-        ),
-    [ALT] = LAYOUT_ansi_82(
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        KC_TAB ,  LT_A3  ,  LT_A1  ,  LT_A5  ,  KC_V   ,  KC_Z   ,  KC_QUOT,  KC_W   ,  LT_A6  ,  LT_A2  ,  LT_A4  ,  MGONE  ,  MGTWO  ,            DF_B   ,  _______,
-        KC_ESC ,  HOME_SS,  HOME_SR,  HOME_SN,  HOME_ST,  KC_K   ,  KC_C   ,  HOME_SD,  HOME_SE,  HOME_SA,  HOME_SI,  KC_BSPC,                      KC_ENT ,  _______,
-        _______,  KC_X   ,  KC_Q   ,  KC_B   ,  KC_M   ,  KC_J   ,  KC_P   ,  KC_G   ,  KC_COMM,  KC_DOT ,  KC_SCLN,                      _______,  _______,
-        _______,  _______,  _______,                                KC_SPC ,                      DF_G   ,  DF_Q   ,  _______,            _______,  _______,  _______
-        ),
-
+        KC_TAB ,  LT_L1  ,  LT_L2  ,  LT_L3  ,  KC_C   ,  KC_W   ,  KC_DOT ,  KC_H   ,  LT_R3  ,  LT_R2  ,  LT_R1  ,  MGONE  ,  MGTWO  ,            DF_G   ,  _______,
+        KC_ESC ,  HOME_LG,  HOME_LA,  HOME_LS,  HOME_LC,  KC_G   ,  KC_B   ,  HOME_RC,  HOME_RS,  HOME_RA,  HOME_RG,  KC_BSPC,                      KC_ENT ,  _______,
+        _______,  KC_X   ,  KC_J   ,  KC_K   ,  KC_P   ,  KC_Z   ,  KC_Q   ,  KC_F   ,  KC_SCLN,  KC_QUOT,  KC_COMM,                      _______,  KC_UP  ,
+        _______,  _______,  _______,                                KC_SPC ,                      DF_G   ,  DF_D   ,  DF_Q   ,            KC_LEFT,  KC_DOWN,  KC_RGHT
+        ), // [ALT] = LAYOUT_ansi_82(
+    //     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
+    //     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
+    //     KC_TAB ,  LT_A3  ,  LT_A1  ,  LT_A5  ,  KC_V   ,  KC_Z   ,  KC_QUOT,  KC_W   ,  LT_A6  ,  LT_A2  ,  LT_A4  ,  MGONE  ,  MGTWO  ,            DF_B   ,  _______,
+    //     KC_ESC ,  HOME_SS,  HOME_SR,  HOME_SN,  HOME_ST,  KC_K   ,  KC_C   ,  HOME_SD,  HOME_SE,  HOME_SA,  HOME_SI,  KC_BSPC,                      KC_ENT ,  _______,
+    //     _______,  KC_X   ,  KC_Q   ,  KC_B   ,  KC_M   ,  KC_J   ,  KC_P   ,  KC_G   ,  KC_COMM,  KC_DOT ,  KC_SCLN,                      _______,  _______,
+    //     _______,  _______,  _______,                                KC_SPC ,                      DF_G   ,  DF_Q   ,  _______,            _______,  _______,  _______
+    //     ),
+    //
     [DVORAK] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        KC_TAB ,  LT_D3  ,  LT_D1  ,  KC_DOT ,  KC_P   ,  KC_Y   ,  KC_F   ,  KC_G   ,  KC_C   ,  LT_D2  ,  LT_D4  ,  MGONE  ,  MGTWO  ,            DF_B   ,  _______,
+        KC_TAB ,  LT_D3  ,  LT_D1  ,  LT_D5 ,  KC_P   ,  KC_Y   ,  KC_F   ,  KC_G   ,  LT_D6   ,  LT_D2  ,  LT_D4  ,  MGONE  ,  MGTWO  ,            DF_B   ,  _______,
         KC_ESC ,  HOME_DA,  HOME_DO,  HOME_DE,  HOME_DU,  KC_I   ,  KC_D   ,  HOME_DH,  HOME_DT,  HOME_DN,  HOME_DS,  KC_BSPC,                      KC_ENT ,  _______,
         _______,  KC_SCLN,  KC_Q   ,  KC_J   ,  KC_K   ,  KC_X   ,  KC_B   ,  KC_M   ,  KC_W   ,  KC_V   ,  KC_Z   ,                      _______,  _______,
         _______,  _______,  _______,                                KC_SPC ,                      _______,  _______,  _______,            _______,  _______,  _______
@@ -157,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
         _______,  _______,  _______,  _______,  _______,  _______,  KC_PIPE,  KC_EXLM,  KC_QUES,  KC_LBRC,  KC_RBRC,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,  _______,  KC_DEL ,  _______,  KC_AMPR,  KC_LPRN,  KC_LCBR,  KC_RCBR,  KC_RPRN,  _______,                      _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  KC_CIRC,  KC_DLR ,  KC_AT  ,  KC_HASH,  KC_PERC,                      _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  KC_CIRC,  KC_DLR ,  KC_EQL ,  ARRW   ,  DARW   ,                      _______,  _______,
         _______,  _______,  _______,                                _______,                      _______,  _______,  _______,            _______,  _______,  _______
         ),
 
@@ -174,17 +158,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         KC_GRV ,  KC_1   ,  KC_2   ,  KC_3   ,  KC_4   ,  KC_5   ,  KC_6   ,  KC_7   ,  KC_8   ,  KC_9   ,  KC_0   ,  _______,  _______,  _______,            _______,
         KC_TAB ,  KC_Q   ,  KC_W   ,  KC_E   ,  KC_R   ,  KC_T   ,  KC_Y   ,  KC_U   ,  KC_I   ,  KC_O   ,  KC_P   ,  _______,  _______,            DF_B   ,  _______,
-        KC_ESC ,  KC_A   ,  KC_S   ,  KC_D   ,  KC_F   ,  KC_G   ,  KC_H   ,  KC_J   ,  KC_K   ,  KC_L   ,  KC_D   ,  KC_BSPC,                      KC_ENT ,  _______,
-        KC_LSFT,  KC_Z   ,  KC_X   ,  KC_C   ,  KC_V   ,  KC_B   ,  KC_N   ,  KC_M   ,  KC_W   ,  KC_V   ,  KC_Z   ,                      _______,  _______,
+        KC_ESC ,  KC_A   ,  KC_S   ,  KC_D   ,  KC_F   ,  KC_G   ,  KC_H   ,  KC_J   ,  KC_K   ,  KC_L   ,  KC_SCLN,  KC_BSPC,                      KC_ENT ,  _______,
+        KC_LSFT,  KC_Z   ,  KC_X   ,  KC_C   ,  KC_V   ,  KC_B   ,  KC_N   ,  KC_M   ,  KC_COMM,  KC_DOT ,  KC_SLSH,                      _______,  _______,
         KC_LCTL,  KC_LGUI,  KC_LALT,                                KC_SPC ,                      _______,  _______,  _______,            _______,  _______,  _______
         ),
 
     [GAME] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
-        KC_GRV ,  KC_1   ,  KC_2   ,  KC_3   ,  KC_4   ,  KC_5   ,  KC_6   ,  KC_7   ,  KC_8   ,  KC_9   ,  KC_0   ,  _______,  _______,  _______,            _______,
+        KC_GRV ,  KC_0   ,  KC_1   ,  KC_2   ,  KC_3   ,  KC_4   ,  KC_5   ,  KC_6   ,  KC_7   ,  KC_8   ,  KC_9   ,  _______,  _______,  _______,            _______,
         KC_TAB ,  KC_P   ,  KC_Q   ,  KC_W   ,  KC_E   ,  KC_R   ,  KC_T   ,  KC_Y   ,  KC_U   ,  KC_I   ,  KC_O   ,  _______,  _______,            DF_B   ,  _______,
-        KC_ESC ,  KC_LSFT,  KC_A   ,  KC_S   ,  KC_D   ,  KC_F   ,  KC_G   ,  KC_H   ,  KC_J   ,  KC_K   ,  _______,  KC_BSPC,                      KC_ENT ,  _______,
-        KC_L   ,  KC_W   ,  KC_Z   ,  KC_X   ,  KC_LCTL,  KC_V   ,  KC_B   ,  KC_N   ,  KC_M   ,  _______,  _______,                      _______,  _______,
+        KC_ESC ,  KC_LSFT,  KC_A   ,  KC_S   ,  KC_D   ,  KC_F   ,  KC_G   ,  KC_H   ,  KC_J   ,  KC_K   ,  KC_SCLN,  KC_BSPC,                      KC_ENT ,  _______,
+        KC_L   ,  KC_M   ,  KC_Z   ,  KC_X   ,  KC_LCTL,  KC_V   ,  KC_B   ,  KC_N   ,  KC_COMM,  KC_DOT ,  KC_SLSH,                      _______,  _______,
         KC_C   ,  KC_LGUI,  KC_LALT,                                KC_SPC ,                      _______,  _______,  _______,            _______,  _______,  _______
         ),
 
@@ -201,7 +185,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [BASE] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-    [ALT] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [DVORAK] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [ONE] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [TWO] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
@@ -215,43 +198,43 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 #endif
 
 
-bool get_repeat_key_eligible_user(uint16_t keycode, keyrecord_t* record, uint8_t* remembered_mods) {
-    switch (keycode) {
-        // Ignore Custom Magic Keys
-        case MGONE:
-        case MGTWO:
-            return false;
-        case KC_A ... KC_Z:
-            if ((*remembered_mods & ~(MOD_MASK_SHIFT)) == 0) {
-                *remembered_mods &= ~MOD_MASK_SHIFT;
-            }
-            break;
-    }
-
-    return true;
-}
-
-uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
-    switch (keycode) {
-        case KC_C:
-        case KC_P:
-        case KC_D:
-        case KC_G:
-        case KC_Z: return KC_Y;
-        case KC_Y: return KC_P;
-        case KC_R: return KC_L;
-        case KC_K: return KC_S;
-        case KC_L:
-        case KC_S: return KC_K;
-        case KC_U: return KC_E;
-        case KC_E: return KC_U;
-        case KC_O: return KC_A;
-        case KC_A: return KC_O;
-        case KC_1 ... KC_0: return KC_DOT;
-    }
-
-    return MGTHE;
-}
+// bool get_repeat_key_eligible_user(uint16_t keycode, keyrecord_t* record, uint8_t* remembered_mods) {
+//     switch (keycode) {
+//         // Ignore Custom Magic Keys
+//         case MGONE:
+//         case MGTWO:
+//             return false;
+//         case KC_A ... KC_Z:
+//             if ((*remembered_mods & ~(MOD_MASK_SHIFT)) == 0) {
+//                 *remembered_mods &= ~MOD_MASK_SHIFT;
+//             }
+//             break;
+//     }
+//
+//     return true;
+// }
+//
+// uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
+//     switch (keycode) {
+//         case KC_C:
+//         case KC_P:
+//         case KC_D:
+//         case KC_G:
+//         case KC_Z: return KC_Y;
+//         case KC_Y: return KC_P;
+//         case KC_R: return KC_L;
+//         case KC_K: return KC_S;
+//         case KC_L:
+//         case KC_S: return KC_K;
+//         case KC_U: return KC_E;
+//         case KC_E: return KC_U;
+//         case KC_O: return KC_A;
+//         case KC_A: return KC_O;
+//         case KC_1 ... KC_0: return KC_DOT;
+//     }
+//
+//     return MGTHE;
+// }
 
 // void matrix_scan_user(void) {
 //   achordion_task();

@@ -9,6 +9,8 @@
 #define HOME_RS LSFT_T(KC_A)
 #define HOME_RA LALT_T(KC_E)
 #define HOME_RG LGUI_T(KC_I)
+#define ALTGR_L RALT_T(KC_C)
+#define ALTGR_R RALT_T(KC_H)
 
 #define HOME_DA LGUI_T(KC_A)
 #define HOME_DO LALT_T(KC_O)
@@ -78,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        KC_TAB ,  LT_L1  ,  LT_L2  ,  LT_L3  ,  KC_C   ,  KC_W   ,  KC_DOT ,  KC_H   ,  LT_R3  ,  LT_R2  ,  LT_R1  ,  MGONE  ,  MGTWO  ,            DF_G   ,  _______,
+        KC_TAB ,  LT_L1  ,  LT_L2  ,  LT_L3  ,  ALTGR_L,  KC_W   ,  KC_DOT ,  ALTGR_R,  LT_R3  ,  LT_R2  ,  LT_R1  ,  MGONE  ,  MGTWO  ,            DF_G   ,  _______,
         KC_ESC ,  HOME_LG,  HOME_LA,  HOME_LS,  HOME_LC,  KC_G   ,  KC_B   ,  HOME_RC,  HOME_RS,  HOME_RA,  HOME_RG,  KC_BSPC,                      KC_ENT ,  _______,
         _______,  KC_X   ,  KC_J   ,  KC_K   ,  KC_P   ,  KC_Z   ,  KC_Q   ,  KC_F   ,  KC_SCLN,  KC_QUOT,  KC_COMM,                      _______,  KC_UP  ,
         _______,  _______,  _______,                                KC_SPC ,                      DF_G   ,  DF_D   ,  DF_Q   ,            KC_LEFT,  KC_DOWN,  KC_RGHT

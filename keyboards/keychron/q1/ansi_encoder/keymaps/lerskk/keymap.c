@@ -1,12 +1,11 @@
 #include QMK_KEYBOARD_H
-// #include "features/achordion.h"
-//
+
 #define HOME_LG LGUI_T(KC_S)
 #define HOME_LA LALT_T(KC_R)
 #define HOME_LS LSFT_T(KC_T)
 #define HOME_LC LCTL_T(KC_D)
 #define HOME_RC LCTL_T(KC_N)
-#define HOME_RS LSFT_T(KC_A)
+#define HOME_RS RSFT_T(KC_A)
 #define HOME_RA LALT_T(KC_E)
 #define HOME_RG LGUI_T(KC_I)
 #define ALTGR_L RALT_T(KC_C)
@@ -45,7 +44,6 @@
 #define UNDO LCTL(KC_Z)
 #define REDO RCS(KC_Z)
 
-
 enum layers {
     BASE,
     ONE,
@@ -70,19 +68,13 @@ enum custom_keycodes {
     HODIR,
     LAYER,
     MGONE,
-    MGTWO,
-    MGTHE
-    // DQUO,
-    // GRV,
-    // TILD,
-    // CIRC,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        KC_TAB ,  LT_L1  ,  LT_L2  ,  LT_L3  ,  ALTGR_L,  KC_W   ,  KC_SCLN,  ALTGR_R,  LT_R3  ,  LT_R2  ,  LT_R1  ,  MGONE  ,  MGTWO  ,            DF_G   ,  _______,
+        KC_TAB ,  LT_L1  ,  LT_L2  ,  LT_L3  ,  ALTGR_L,  KC_W   ,  KC_SCLN,  ALTGR_R,  LT_R3  ,  LT_R2  ,  LT_R1  ,  QK_AREP,  QK_REP ,            DF_G   ,  _______,
         KC_ESC ,  HOME_LG,  HOME_LA,  HOME_LS,  HOME_LC,  KC_G   ,  KC_COMM,  HOME_RC,  HOME_RS,  HOME_RA,  HOME_RG,  KC_BSPC,                      KC_ENT ,  _______,
         _______,  KC_V   ,  KC_J   ,  KC_K   ,  KC_P   ,  KC_Z   ,  KC_Q   ,  KC_B   ,  KC_DOT ,  KC_QUOT,  KC_X   ,                      _______,  KC_UP  ,
         _______,  _______,  _______,                                KC_SPC ,                      DF_G   ,  DF_B   ,  DF_Q   ,            KC_LEFT,  KC_DOWN,  KC_RGHT
@@ -255,9 +247,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     if (record->event.pressed) {
         switch (keycode) {
-            case MGTHE:
-                SEND_STRING("the");
-                return false;
             case ARRW:
                 SEND_STRING("->");
                 return false;

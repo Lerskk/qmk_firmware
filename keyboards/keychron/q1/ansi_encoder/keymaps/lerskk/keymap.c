@@ -67,26 +67,39 @@ enum custom_keycodes {
     CUDIR,
     HODIR,
     LAYER,
-    MGONE,
+    MGONE
+};
+
+enum {
+    DANCE_00,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        KC_TAB ,  LT_L1  ,  LT_L2  ,  LT_L3  ,  ALTGR_L,  KC_W   ,  KC_SCLN,  ALTGR_R,  LT_R3  ,  LT_R2  ,  LT_R1  ,  QK_AREP,  QK_REP ,            DF_G   ,  _______,
+        KC_TAB ,  LT_L1  ,  LT_L2  ,  LT_L3  ,  ALTGR_L,  KC_W   ,  KC_SCLN,  ALTGR_R,  LT_R3  ,  LT_R2  ,  LT_R1  ,  TO(ONE ),  QK_REP ,            DF_G   ,  _______,
         KC_ESC ,  HOME_LG,  HOME_LA,  HOME_LS,  HOME_LC,  KC_G   ,  KC_COMM,  HOME_RC,  HOME_RS,  HOME_RA,  HOME_RG,  KC_BSPC,                      KC_ENT ,  _______,
         _______,  KC_V   ,  KC_J   ,  KC_K   ,  KC_P   ,  KC_Z   ,  KC_Q   ,  KC_B   ,  KC_DOT ,  KC_QUOT,  KC_X   ,                      _______,  KC_UP  ,
-        _______,  _______,  _______,                                KC_SPC ,                      DF_G   ,  DF_B   ,  DF_Q   ,            KC_LEFT,  KC_DOWN,  KC_RGHT
+        _______,  _______,  _______,                                KC_SPC,                      DF_G   ,  DF_B   ,  DF_Q   ,            KC_LEFT,  KC_DOWN,  KC_RGHT
         ), // [ALT] = LAYOUT_ansi_82(
 
     [ONE] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  KC_BSLS,  KC_7   ,  KC_8   ,  KC_9   ,  KC_0   ,  _______,  _______,  _______,            _______,
+        _______,  _______,  _______,  _______,  UNDO   ,  REDO   ,  _______,  KC_LBRC,  KC_RBRC,  ARRW   ,  DARW   ,  TO(FIVE),  _______,            _______,  _______,
+        _______,  _______,  _______,  _______,  KC_DEL ,  _______,  _______,  KC_LPRN,  KC_LCBR,  KC_RCBR,  KC_RPRN,  _______,                      _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_GRV ,  KC_LABK,  KC_RABK,  CLSRABK,                      _______,  _______,
+        _______,  _______,  _______,                                TD(DANCE_00),                      _______,  _______,  _______,            _______,  _______,  _______
+        ),
+
+    [FIVE] = LAYOUT_ansi_82(
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  KC_BSLS,  KC_7   ,  KC_8   ,  KC_9   ,  KC_0   ,  KC_NO  ,  _______,  _______,            _______,
         _______,  _______,  _______,  _______,  _______,  _______,  KC_EQL ,  KC_4   ,  KC_5   ,  KC_6   ,  KC_MINS,  _______,                      _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  KC_SLSH,  KC_1   ,  KC_2   ,  KC_3   ,  _______,                      _______,  _______,
-        _______,  _______,  _______,                                _______,                      _______,  _______,  _______,            _______,  _______,  _______
+        _______,  _______,  _______,                                TD(DANCE_00),                      _______,  _______,  _______,            _______,  _______,  _______
         ),
 
     [TWO] = LAYOUT_ansi_82(
@@ -116,15 +129,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,                                _______,                      _______,  _______,  _______,            _______,  _______,  _______
         ),
 
-    [FIVE] = LAYOUT_ansi_82(
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        _______,  _______,  _______,  _______,  UNDO   ,  REDO   ,  _______,  KC_LBRC,  KC_RBRC,  ARRW   ,  DARW   ,  _______,  _______,            _______,  _______,
-        _______,  _______,  _______,  _______,  KC_DEL ,  _______,  _______,  KC_LPRN,  KC_LCBR,  KC_RCBR,  KC_RPRN,  _______,                      _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_GRV ,  KC_LABK,  KC_RABK,  CLSRABK,                      _______,  _______,
-        _______,  _______,  _______,                                _______,                      _______,  _______,  _______,            _______,  _______,  _______
-        ),
-
     [SIX] = LAYOUT_ansi_82(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
@@ -140,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB ,  KC_Q   ,  KC_W   ,  KC_E   ,  KC_R   ,  KC_T   ,  KC_Y   ,  KC_U   ,  KC_I   ,  KC_O   ,  KC_P   ,  _______,  _______,            DF_B   ,  _______,
         KC_ESC ,  KC_A   ,  KC_S   ,  KC_D   ,  KC_F   ,  KC_G   ,  KC_H   ,  KC_J   ,  KC_K   ,  KC_L   ,  KC_SCLN,  KC_BSPC,                      KC_ENT ,  _______,
         KC_LSFT,  KC_Z   ,  KC_X   ,  KC_C   ,  KC_V   ,  KC_B   ,  KC_N   ,  KC_M   ,  KC_COMM,  KC_DOT ,  KC_SLSH,                      _______,  _______,
-        KC_LCTL,  KC_LGUI,  KC_LALT,                                KC_SPC ,                      _______,  _______,  _______,            _______,  _______,  _______
+        KC_LCTL,  KC_LGUI,  KC_LALT,                                _______,                      _______,  _______,  _______,            _______,  _______,  _______
         ),
 
     [GAME] = LAYOUT_ansi_82(
@@ -149,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB ,  KC_P   ,  KC_Q   ,  KC_W   ,  KC_E   ,  KC_R   ,  KC_T   ,  KC_Y   ,  KC_U   ,  KC_I   ,  KC_O   ,  _______,  _______,            DF_B   ,  _______,
         KC_ESC ,  KC_LSFT,  KC_A   ,  KC_S   ,  KC_D   ,  KC_F   ,  KC_G   ,  KC_H   ,  KC_J   ,  KC_K   ,  KC_SCLN,  KC_BSPC,                      KC_ENT ,  _______,
         KC_L   ,  KC_M   ,  KC_Z   ,  KC_X   ,  KC_LCTL,  KC_V   ,  KC_B   ,  KC_N   ,  KC_COMM,  KC_DOT ,  KC_SLSH,                      _______,  _______,
-        KC_C   ,  KC_LGUI,  KC_LALT,                                KC_SPC ,                      _______,  _______,  _______,            _______,  _______,  _______
+        KC_C   ,  KC_LGUI,  KC_LALT,                                _______,                      _______,  _______,  _______,            _______,  _______,  _______
         ),
 
     // [EMPTY] = LAYOUT_ansi_82(
@@ -268,4 +272,68 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
     }
     return true;
+};
+
+enum {
+    SINGLE_TAP = 1,
+    SINGLE_HOLD,
+    DOUBLE_TAP,
+    DOUBLE_HOLD,
+    DOUBLE_SINGLE_TAP,
+    MORE_TAPS
+};
+
+typedef struct {
+    bool is_press_action;
+    uint8_t step;
+} tap;
+
+static tap dance_state = {
+    .is_press_action = true,
+    .step = 0
+};
+
+void on_dance_1(tap_dance_state_t *state, void *user_data);
+uint8_t dance_1_dance_step(tap_dance_state_t *state);
+void dance_1_finished(tap_dance_state_t *state, void *user_data);
+void dance_1_reset(tap_dance_state_t *state, void *user_data);
+
+void on_dance_1(tap_dance_state_t *state, void *user_data) {
+	if(state->count == 3) {
+        tap_code16(KC_SPC); layer_move(BASE);
+	}
 }
+uint8_t dance_1_dance_step(tap_dance_state_t *state) {
+	if (state->count == 1) {
+		if (state->interrupted || !state->pressed) return SINGLE_TAP;
+		else return SINGLE_HOLD;
+	} else if (state->count == 2) {
+		if (state->interrupted) return DOUBLE_SINGLE_TAP;
+		else if (state->pressed) return DOUBLE_HOLD;
+		else return DOUBLE_TAP;
+	}
+	return MORE_TAPS;
+}
+void dance_1_finished(tap_dance_state_t *state, void *user_data) {
+	dance_state.step = dance_1_dance_step(state);
+	switch (dance_state.step) {
+		case SINGLE_TAP: tap_code16(KC_SPC); break;
+		// case SINGLE_HOLD: register_code16(KC_EXLM); break;
+		case DOUBLE_TAP: layer_move(BASE); break;
+		case DOUBLE_SINGLE_TAP: tap_code16(KC_SPC); tap_code16(KC_SPC); break;
+	}
+}
+
+void dance_1_reset(tap_dance_state_t *state, void *user_data) {
+	wait_ms(10);
+	switch (dance_state.step) {
+        case SINGLE_TAP: unregister_code16(KC_SPC); break;
+        // case SINGLE_HOLD: unregister_code16(KC_EXLM); break;
+		// case DOUBLE_TAP: unregister_code16(KC_SPC); break;
+        case DOUBLE_SINGLE_TAP: unregister_code16(KC_SPC); break;
+	}
+	dance_state.step = 0;
+}
+tap_dance_action_t tap_dance_actions[] = {
+    [DANCE_00] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
+};

@@ -1,5 +1,8 @@
+SRC += features/orbital_mouse.c
+
 ENCODER_MAP_ENABLE = yes
 SEND_STRING_ENABLE = yes
 REPEAT_KEY_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 TAP_DANCE_ENABLE = yes
+MOUSE_ENABLE = yes

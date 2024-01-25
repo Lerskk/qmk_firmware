@@ -3,10 +3,10 @@
 
 #define HOME_LG LGUI_T(KC_S)
 #define HOME_LA LALT_T(KC_R)
-#define HOME_LS LSFT_T(KC_T)
+#define HOME_LS LSFT_T(KC_S)
 #define HOME_LC LCTL_T(KC_D)
 #define HOME_RC LCTL_T(KC_N)
-#define HOME_RS RSFT_T(KC_A)
+#define HOME_RS RSFT_T(KC_E)
 #define HOME_RA LALT_T(KC_E)
 #define HOME_RG LGUI_T(KC_I)
 #define ALTGR_L RALT_T(KC_C)
@@ -79,11 +79,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // -----------------------------------------------------------------------------   ----------------------------------------------------------------------------- //
         _______,  KC_1   ,  KC_2   ,  KC_3   ,  KC_4   ,  KC_5   ,                         KC_6   ,  KC_7   ,  KC_8   ,  KC_9   ,  KC_0   ,  _______,  _______,  _______,            _______,
         // -----------------------------------------------------------------------------   ----------------------------------------------------------------------------- //
-        KC_TAB ,  KC_F   ,  KC_L   ,  LT_L3  ,  ALTGR_L,  KC_W   ,                         TD(DANCE_01),  ALTGR_R,  KC_O   ,  KC_U   ,  LT_R1  ,  TO(ONE),  QK_REP ,            DF_G   ,  _______,
+        KC_TAB ,  KC_Q   ,  KC_W   ,  LT(FIVE, KC_F),  RALT_T(KC_P),  KC_B   ,             KC_J   ,  RALT_T(KC_L),  KC_U   ,  KC_Y   ,  KC_SCLN,  TO(ONE),  QK_REP ,            DF_G   ,  _______,
         // -----------------------------------------------------------------------------   ----------------------------------------------------------------------------- //
-        KC_ESC ,  HOME_LG,  HOME_LA,  HOME_LS,  HOME_LC,  KC_G   ,                         TD(DANCE_03),  HOME_RC,  HOME_RS,  HOME_RA,  HOME_RG,  KC_BSPC,                      KC_ENT ,  _______,
-        // -----------------------------------------------------------------------------   ----------------------------------------------------------------------------- //
-        _______,  KC_V   ,  KC_J   ,  KC_K   ,  KC_P   ,  KC_Z   ,                         KC_Q   ,  KC_B   ,  TD(DANCE_02),  KC_QUOT,  KC_X   ,                      _______,  KC_UP  ,
+        KC_BSPC,  LGUI_T(KC_A),  LALT_T(KC_R),  LSFT_T(KC_S),  LCTL_T(KC_T),  KC_G   ,     KC_M   ,  LCTL_T(KC_N),  RSFT_T(KC_E),  LALT_T(KC_I),  LGUI_T(KC_O),  KC_QUOT,                      KC_ENT ,  _______, // -----------------------------------------------------------------------------   ----------------------------------------------------------------------------- //
+        KC_ESC ,  KC_Z   ,  KC_X   ,  KC_C   ,  KC_D   ,  KC_V   ,                         KC_K   ,  KC_H   ,  TD(DANCE_03),  TD(DANCE_02),   TD(DANCE_01),                      _______,  KC_UP  ,
         // -----------------------------------------------------------------------------   ----------------------------------------------------------------------------- //
         _______,  _______,  _______,                                KC_SPC,                      _______,  _______,  DF_Q   ,            KC_LEFT,  KC_DOWN,  KC_RGHT
         ),
@@ -94,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // -----------------------------------------------------------------------------   ----------------------------------------------------------------------------- //
         _______,  KC_EXLM,  KC_AT  ,  KC_HASH,  KC_DLR ,  KC_PERC,                         KC_BSLS,  KC_GRV ,  KC_COLN,  KC_SCLN,  KC_AMPR,  TO(TWO),  _______,            _______,  _______,
         // -----------------------------------------------------------------------------   ----------------------------------------------------------------------------- //
-        _______,  KC_QUES,  KC_PLUS,  KC_MINS,  KC_EQL ,  KC_CIRC,                         KC_QUOT,  KC_LPRN,  KC_LCBR,  KC_LBRC,  KC_PIPE,  _______,                      _______,  _______,
+        _______,  KC_QUES,  KC_PLUS,  KC_MINS,  KC_EQL ,  KC_CIRC,                         KC_QUOT,  KC_LPRN,  KC_LCBR,  KC_LBRC,  KC_PIPE,  TO(THREE),                      _______,  _______,
         // -----------------------------------------------------------------------------   ----------------------------------------------------------------------------- //
         _______,  KC_LABK,  KC_ASTR,  KC_SLSH,  KC_RABK,  KC_UNDS,                         KC_TILD ,  KC_RPRN,  KC_RCBR,  KC_RBRC,  TO(THREE),                      _______,  _______,
         // -----------------------------------------------------------------------------   ----------------------------------------------------------------------------- //
@@ -150,7 +149,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,
         KC_GRV ,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
         KC_TAB ,  KC_Q   ,  KC_W   ,  KC_E   ,  KC_R   ,  KC_T   ,  KC_Y   ,  KC_U   ,  KC_I   ,  KC_O   ,  KC_P   ,  _______,  _______,            DF_B   ,  _______,
-        KC_ESC ,  KC_A   ,  KC_S   ,  KC_D   ,  KC_F   ,  KC_G   ,  KC_H   ,  KC_J   ,  KC_K   ,  KC_L   ,  KC_SCLN,  KC_BSPC,                      KC_ENT ,  _______,
+        _______,  KC_A   ,  KC_S   ,  KC_D   ,  KC_F   ,  KC_G   ,  KC_H   ,  KC_J   ,  KC_K   ,  KC_L   ,  KC_SCLN,  KC_BSPC,                      KC_ENT ,  _______,
         KC_LSFT,  KC_Z   ,  KC_X   ,  KC_C   ,  KC_V   ,  KC_B   ,  KC_N   ,  KC_M   ,  KC_COMM,  KC_DOT ,  KC_SLSH,                      _______,  _______,
         KC_LCTL,  KC_LGUI,  KC_LALT,                                _______,                      _______,  _______,  _______,            _______,  _______,  _______
         ),
